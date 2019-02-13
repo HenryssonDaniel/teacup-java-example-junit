@@ -1,0 +1,27 @@
+plugins {
+    id 'java'
+}
+
+group = 'org.teacup.examples'
+version = '1.0.0-SNAPSHOT'
+
+repositories {
+    jcenter()
+    mavenLocal()
+}
+
+dependencies {
+    testCompile('org.teacup:core:1.0.0-SNAPSHOT')
+    testCompile('org.teacup.engine:junit:1.0.0-SNAPSHOT')
+    testCompile('org.teacup.protocols:http:1.0.0-SNAPSHOT')
+}
+
+test {
+    useJUnitPlatform {
+        includeEngines 'teacup'
+    }
+
+    testLogging {
+        showStandardStreams = true
+    }
+}
