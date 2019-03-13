@@ -6,7 +6,7 @@ import java.net.http.HttpClient;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.teacup.core.DefaultSetup;
-import org.teacup.protocols.http.ClientFactory;
+import org.teacup.protocol.http.ClientFactory;
 
 /**
  * An simple setup.
