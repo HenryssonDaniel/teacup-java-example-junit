@@ -15,15 +15,14 @@ import org.teacup.core.Fixture;
 import org.teacup.core.Node;
 import org.teacup.core.assertion.Factory;
 import org.teacup.engine.junit.Teacup;
-import org.teacup.protocol.http.Client;
-import org.teacup.protocol.http.Handler;
-import org.teacup.protocol.http.HandlerBuilderFactory;
+import org.teacup.protocol.http.client.Handler;
 import org.teacup.protocol.http.server.Context;
 import org.teacup.protocol.http.server.Simple;
 
 @Fixture(SimpleSetup.class)
 class SimpleTest {
-  private static final Client CLIENT = Teacup.getClient(Client.class, HTTP_CLIENT);
+  private static final org.teacup.protocol.http.client.Simple CLIENT =
+      Teacup.getClient(org.teacup.protocol.http.client.Simple.class, HTTP_CLIENT);
   private static final Context CONTEXT =
       org.teacup.protocol.http.server.Factory.createContextBuilder(
               "/",
@@ -32,7 +31,7 @@ class SimpleTest {
                   .build())
           .build();
   private static final Handler<String> HANDLER =
-      HandlerBuilderFactory.create(BodyHandlers.ofString()).build();
+      org.teacup.protocol.http.client.Factory.createHandlerBuilder(BodyHandlers.ofString()).build();
   private static final HttpRequest HTTP_REQUEST =
       HttpRequest.newBuilder().uri(URI.create("http://localhost:80/test")).build();
   private static final Node<HttpResponse<String>> NODE =
