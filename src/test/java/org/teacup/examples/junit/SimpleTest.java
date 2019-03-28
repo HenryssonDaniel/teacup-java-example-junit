@@ -3,6 +3,13 @@ package org.teacup.examples.junit;
 import static org.teacup.examples.junit.Constants.HTTP_CLIENT;
 import static org.teacup.examples.junit.Constants.HTTP_SERVER;
 
+import io.github.henryssondaniel.teacup.core.Fixture;
+import io.github.henryssondaniel.teacup.core.Node;
+import io.github.henryssondaniel.teacup.core.assertion.Factory;
+import io.github.henryssondaniel.teacup.engine.junit.Teacup;
+import io.github.henryssondaniel.teacup.protocol.http.client.Handler;
+import io.github.henryssondaniel.teacup.protocol.http.server.Context;
+import io.github.henryssondaniel.teacup.protocol.http.server.Simple;
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient.Version;
@@ -11,31 +18,28 @@ import java.net.http.HttpResponse;
 import java.net.http.HttpResponse.BodyHandlers;
 import java.util.concurrent.ExecutionException;
 import org.junit.jupiter.api.Test;
-import org.teacup.core.Fixture;
-import org.teacup.core.Node;
-import org.teacup.core.assertion.Factory;
-import org.teacup.engine.junit.Teacup;
-import org.teacup.protocol.http.client.Handler;
-import org.teacup.protocol.http.server.Context;
-import org.teacup.protocol.http.server.Simple;
 
 @Fixture(SimpleSetup.class)
 class SimpleTest {
-  private static final org.teacup.protocol.http.client.Simple CLIENT =
-      Teacup.getClient(org.teacup.protocol.http.client.Simple.class, HTTP_CLIENT);
+  private static final io.github.henryssondaniel.teacup.protocol.http.client.Simple CLIENT =
+      Teacup.getClient(
+          io.github.henryssondaniel.teacup.protocol.http.client.Simple.class, HTTP_CLIENT);
   private static final Context CONTEXT =
-      org.teacup.protocol.http.server.Factory.createContextBuilder(
+      io.github.henryssondaniel.teacup.protocol.http.server.Factory.createContextBuilder(
               "/",
-              org.teacup.protocol.http.server.Factory.createResponseBuilder(200, 0L)
+              io.github.henryssondaniel.teacup.protocol.http.server.Factory.createResponseBuilder(
+                      200, 0L)
                   .setBody()
                   .build())
           .build();
   private static final Handler<String> HANDLER =
-      org.teacup.protocol.http.client.Factory.createHandlerBuilder(BodyHandlers.ofString()).build();
+      io.github.henryssondaniel.teacup.protocol.http.client.Factory.createHandlerBuilder(
+              BodyHandlers.ofString())
+          .build();
   private static final HttpRequest HTTP_REQUEST =
       HttpRequest.newBuilder().uri(URI.create("http://localhost:80/test")).build();
   private static final Node<HttpResponse<String>> NODE =
-      org.teacup.protocol.http.node.Factory.<String>createResponseBuilder()
+      io.github.henryssondaniel.teacup.protocol.http.node.Factory.<String>createResponseBuilder()
           .setStatusCode(Factory.createIntegerAssert().isEqualTo(200))
           .setVersion(Factory.<Version>createComparableAssert().isSameAs(Version.HTTP_1_1))
           .build();

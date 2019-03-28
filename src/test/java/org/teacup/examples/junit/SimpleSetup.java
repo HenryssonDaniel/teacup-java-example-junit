@@ -4,13 +4,13 @@ import static org.teacup.examples.junit.Constants.HTTP_CLIENT;
 import static org.teacup.examples.junit.Constants.HTTP_SERVER;
 
 import com.sun.net.httpserver.HttpServer;
+import io.github.henryssondaniel.teacup.core.DefaultSetup;
+import io.github.henryssondaniel.teacup.protocol.http.server.Factory;
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.net.http.HttpClient;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import org.teacup.core.DefaultSetup;
-import org.teacup.protocol.http.server.Factory;
 
 /**
  * An simple setup.
@@ -26,7 +26,8 @@ public class SimpleSetup extends DefaultSetup {
     LOGGER.log(Level.FINE, "Initialize");
     putClient(
         HTTP_CLIENT,
-        org.teacup.protocol.http.client.Factory.createSimple(HttpClient.newBuilder().build()));
+        io.github.henryssondaniel.teacup.protocol.http.client.Factory.createSimple(
+            HttpClient.newBuilder().build()));
 
     try {
       putServer(
