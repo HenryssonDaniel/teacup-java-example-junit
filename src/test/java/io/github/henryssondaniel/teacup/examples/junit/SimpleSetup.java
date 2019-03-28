@@ -1,7 +1,4 @@
-package org.teacup.examples.junit;
-
-import static org.teacup.examples.junit.Constants.HTTP_CLIENT;
-import static org.teacup.examples.junit.Constants.HTTP_SERVER;
+package io.github.henryssondaniel.teacup.examples.junit;
 
 import com.sun.net.httpserver.HttpServer;
 import io.github.henryssondaniel.teacup.core.DefaultSetup;
@@ -25,13 +22,13 @@ public class SimpleSetup extends DefaultSetup {
   public void initialize() {
     LOGGER.log(Level.FINE, "Initialize");
     putClient(
-        HTTP_CLIENT,
+        Constants.HTTP_CLIENT,
         io.github.henryssondaniel.teacup.protocol.http.client.Factory.createSimple(
             HttpClient.newBuilder().build()));
 
     try {
       putServer(
-          HTTP_SERVER,
+          Constants.HTTP_SERVER,
           Factory.createServer(HttpServer.create(new InetSocketAddress("localhost", PORT), 0)));
     } catch (IOException e) {
       throw new IllegalArgumentException(e);

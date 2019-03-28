@@ -1,7 +1,4 @@
-package org.teacup.examples.junit;
-
-import static org.teacup.examples.junit.Constants.HTTP_CLIENT;
-import static org.teacup.examples.junit.Constants.HTTP_SERVER;
+package io.github.henryssondaniel.teacup.examples.junit;
 
 import io.github.henryssondaniel.teacup.core.Fixture;
 import io.github.henryssondaniel.teacup.core.Node;
@@ -23,7 +20,8 @@ import org.junit.jupiter.api.Test;
 class SimpleTest {
   private static final io.github.henryssondaniel.teacup.protocol.http.client.Simple CLIENT =
       Teacup.getClient(
-          io.github.henryssondaniel.teacup.protocol.http.client.Simple.class, HTTP_CLIENT);
+          io.github.henryssondaniel.teacup.protocol.http.client.Simple.class,
+          Constants.HTTP_CLIENT);
   private static final Context CONTEXT =
       io.github.henryssondaniel.teacup.protocol.http.server.Factory.createContextBuilder(
               "/",
@@ -43,7 +41,7 @@ class SimpleTest {
           .setStatusCode(Factory.createIntegerAssert().isEqualTo(200))
           .setVersion(Factory.<Version>createComparableAssert().isSameAs(Version.HTTP_1_1))
           .build();
-  private static final Simple SIMPLE = Teacup.getServer(Simple.class, HTTP_SERVER);
+  private static final Simple SIMPLE = Teacup.getServer(Simple.class, Constants.HTTP_SERVER);
 
   @Test
   void sendAsynchronouslyHttpRequest() throws ExecutionException, InterruptedException {

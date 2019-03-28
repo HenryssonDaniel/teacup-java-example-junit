@@ -1,1 +1,0 @@
-package org.teacup.examples.junit;
