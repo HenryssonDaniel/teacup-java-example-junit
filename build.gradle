@@ -1,19 +1,28 @@
 plugins {
+    id 'jacoco'
     id 'java'
+    id 'org.sonarqube' version '2.7'
 }
 
 group = 'io.github.henryssondaniel.teacup.example'
 version = '1.0.0-SNAPSHOT'
 
-repositories {
-    jcenter()
-    mavenLocal()
-}
-
 dependencies {
     testCompile('io.github.henryssondaniel.teacup:core:1.0.1-SNAPSHOT')
     testCompile('io.github.henryssondaniel.teacup.engine:junit:1.0.1-SNAPSHOT')
     testCompile('io.github.henryssondaniel.teacup.protocol:http:1.0.1-SNAPSHOT')
+}
+
+repositories {
+    mavenLocal()
+    jcenter()
+    maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
+}
+
+sonarqube {
+    properties {
+        property "sonar.projectKey", "HenryssonDaniel_teacup-java-example-junit"
+    }
 }
 
 test {
