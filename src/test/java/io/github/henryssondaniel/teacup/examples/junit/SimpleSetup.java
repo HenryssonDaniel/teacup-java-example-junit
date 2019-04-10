@@ -16,7 +16,7 @@ import java.util.logging.Logger;
  */
 public class SimpleSetup extends DefaultSetup {
   private static final Logger LOGGER = Logger.getLogger(SimpleSetup.class.getName());
-  private static final int PORT = 80;
+  private static final int PORT = 1234;
 
   @Override
   public void initialize() {

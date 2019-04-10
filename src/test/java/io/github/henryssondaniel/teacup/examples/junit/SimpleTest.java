@@ -35,7 +35,7 @@ class SimpleTest {
               BodyHandlers.ofString())
           .build();
   private static final HttpRequest HTTP_REQUEST =
-      HttpRequest.newBuilder().uri(URI.create("http://localhost:80/test")).build();
+      HttpRequest.newBuilder().uri(URI.create("http://localhost:1234/test")).build();
   private static final Node<HttpResponse<String>> NODE =
       io.github.henryssondaniel.teacup.protocol.http.node.Factory.<String>createResponseBuilder()
           .setStatusCode(Factory.createIntegerAssert().isEqualTo(200))
