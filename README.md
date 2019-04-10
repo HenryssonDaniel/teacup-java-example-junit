@@ -9,12 +9,12 @@ It can be used as a reference to set up and write your first test case.
 ## How ##
 ### Add the dependencies ###
 It has three dependencies:
-1. Core (org.teacup:core)
-1. JUnit test engine (org.teacup.engine:junit)
-1. HTTP protocol (org.teacup.protocol:http)
+1. Core (io.github.henryssondaniel.teacup:core)
+1. JUnit test engine (io.github.henryssondaniel.teacup.engine:junit)
+1. HTTP protocol (io.github.henryssondaniel.teacup.protocol:http)
 ### Add the test engine ###
-1. Create a file named org.junit.platform.engine.TestEngine in src/main/resources/META-INF/services
-1. Add the content org.teacup.engine.junit.TeacupTestEngine
+1. Create a file named io.github.henryssondaniel.junit.platform.engine.TestEngine in src/main/resources/META-INF/services
+1. Add the content io.github.henryssondaniel.teacup.engine.junit.TeacupTestEngine
 1. Add the engine to the build file, this is different depending on the build tool you are using.  
 The best thing is to check: https://junit.org/junit5/docs/current/user-guide/#running-tests-build
 ### Write your test (pseudocode) ###
