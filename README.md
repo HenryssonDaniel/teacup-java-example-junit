@@ -1,26 +1,22 @@
 # teacup-java-example-junit
 Java **Te**sting Fr**a**mework for **C**omm**u**nication **P**rotocols and Web Services examples with JUnit
 
+[![Build Status](https://travis-ci.com/HenryssonDaniel/teacup-java-example-junit.svg?branch=master)](https://travis-ci.com/HenryssonDaniel/teacup-java-example-junit)
 ## What ##
 This repository contains examples using the JUnit test engine.
-
 ## Why ##
 It can be used as a reference to set up and write your first test case.
-
 ## How ##
-
 ### Add the dependencies ###
 It has three dependencies:
 1. Core (org.teacup:core)
 1. JUnit test engine (org.teacup.engine:junit)
 1. HTTP protocol (org.teacup.protocol:http)
-
 ### Add the test engine ###
 1. Create a file named org.junit.platform.engine.TestEngine in src/main/resources/META-INF/services
 1. Add the content org.teacup.engine.junit.TeacupTestEngine
 1. Add the engine to the build file, this is different depending on the build tool you are using.  
 The best thing is to check: https://junit.org/junit5/docs/current/user-guide/#running-tests-build
-
 ### Write your test (pseudocode) ###
 Writing your test can be divided into three steps:
 1. response = client.send(request) // send the request
