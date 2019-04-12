@@ -2,6 +2,7 @@
 Java **Te**sting Fr**a**mework for **C**omm**u**nication **P**rotocols and Web Services examples with JUnit
 
 [![Build Status](https://travis-ci.com/HenryssonDaniel/teacup-java-example-junit.svg?branch=master)](https://travis-ci.com/HenryssonDaniel/teacup-java-example-junit)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=HenryssonDaniel_teacup-java-example-junit&metric=alert_status)](https://sonarcloud.io/dashboard?id=HenryssonDaniel_teacup-java-example-junit)
 ## What ##
 This repository contains examples using the JUnit test engine.
 ## Why ##
