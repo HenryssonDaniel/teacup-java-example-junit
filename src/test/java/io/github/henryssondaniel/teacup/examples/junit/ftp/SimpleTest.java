@@ -5,7 +5,7 @@ import io.github.henryssondaniel.teacup.engine.junit.Teacup;
 import io.github.henryssondaniel.teacup.protocol.ftp.Client;
 import io.github.henryssondaniel.teacup.protocol.ftp.SimpleServer;
 import io.github.henryssondaniel.teacup.protocol.ftp.client.Command;
-import io.github.henryssondaniel.teacup.protocol.ftp.server.Context;
+import io.github.henryssondaniel.teacup.protocol.ftp.server.Factory;
 import io.github.henryssondaniel.teacup.protocol.ftp.server.Reply;
 import java.io.IOException;
 import org.junit.jupiter.api.Test;
@@ -18,8 +18,8 @@ class SimpleTest {
 
   @Test
   void sendHttpRequest() throws IOException {
-    var requests = SIMPLE_SERVER.setContext(new TextContext());
-    Client client = Teacup.getClient(Client.class, Constants.FTP_CLIENT);
+    var requests = SIMPLE_SERVER.setContext(Factory.createContextBuilder(new TestReply()).build());
+    var client = Teacup.getClient(Client.class, Constants.FTP_CLIENT);
     client.connect("localhost", PORT);
     client.send(Command.ACCT, "argument");
     requests.get();
@@ -35,13 +35,6 @@ class SimpleTest {
     @Override
     public String getMessage() {
       return "message";
-    }
-  }
-
-  private static class TextContext implements Context {
-    @Override
-    public Reply getReply() {
-      return new TestReply();
     }
   }
 }
