@@ -12,6 +12,7 @@ import java.util.logging.Logger;
  */
 public class SimpleSetup extends DefaultSetup {
   private static final Logger LOGGER = Logger.getLogger(SimpleSetup.class.getName());
+  private static final int PORT = 1234;
 
   @Override
   public void initialize() {
@@ -20,6 +21,12 @@ public class SimpleSetup extends DefaultSetup {
         Constants.FTP_CLIENT,
         io.github.henryssondaniel.teacup.protocol.ftp.client.Factory.createClient());
 
-    putServer(Constants.FTP_SERVER, Factory.createServer());
+    putServer(
+        Constants.FTP_SERVER,
+        Factory.createServer(
+            Factory.createConfigurationBuilder()
+                .setPort(PORT)
+                .setServerAddress("localhost")
+                .build()));
   }
 }

@@ -12,6 +12,7 @@ import org.junit.jupiter.api.Test;
 
 @Fixture(SimpleSetup.class)
 class SimpleTest {
+  private static final int PORT = 1234;
   private static final SimpleServer SIMPLE_SERVER =
       Teacup.getServer(SimpleServer.class, Constants.FTP_SERVER);
 
@@ -19,7 +20,7 @@ class SimpleTest {
   void sendHttpRequest() throws IOException {
     var requests = SIMPLE_SERVER.setContext(new TextContext());
     Client client = Teacup.getClient(Client.class, Constants.FTP_CLIENT);
-    client.connect("localhost");
+    client.connect("localhost", PORT);
     client.send(Command.ACCT, "argument");
     requests.get();
     SIMPLE_SERVER.removeSupplier(requests);
