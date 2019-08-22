@@ -1,4 +1,4 @@
-package io.github.henryssondaniel.teacup.examples.junit;
+package io.github.henryssondaniel.teacup.examples.junit.http;
 
 import io.github.henryssondaniel.teacup.core.Fixture;
 import io.github.henryssondaniel.teacup.core.Node;

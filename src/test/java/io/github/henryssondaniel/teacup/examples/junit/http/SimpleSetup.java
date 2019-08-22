@@ -1,4 +1,4 @@
-package io.github.henryssondaniel.teacup.examples.junit;
+package io.github.henryssondaniel.teacup.examples.junit.http;
 
 import com.sun.net.httpserver.HttpServer;
 import io.github.henryssondaniel.teacup.core.DefaultSetup;

@@ -1,4 +1,4 @@
-package io.github.henryssondaniel.teacup.examples.junit;
+package io.github.henryssondaniel.teacup.examples.junit.http;
 
 enum Constants {
   ;
