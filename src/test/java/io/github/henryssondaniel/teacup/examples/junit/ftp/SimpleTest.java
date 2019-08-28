@@ -23,7 +23,7 @@ class SimpleTest {
   private static final int PORT = 1234;
 
   @Test
-  void sendHttpRequest() throws IOException {
+  void sendFtpRequest() throws IOException {
     var simpleServer = Teacup.getServer(SimpleServer.class, Constants.FTP_SERVER);
 
     var requests =
@@ -47,7 +47,7 @@ class SimpleTest {
                 .isEqualTo(CODE))
         .setText(
             io.github.henryssondaniel.teacup.core.assertion.Factory.createStringAssert()
-                .isEqualTo(CODE + " " + MESSAGE + System.lineSeparator()))
+                .isEqualTo(CODE + " " + MESSAGE + "\r\n"))
         .build();
   }
 
