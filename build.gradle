@@ -12,6 +12,7 @@ dependencies {
     testCompile('io.github.henryssondaniel.teacup.engine:junit:1.1.3-SNAPSHOT')
     testCompile('io.github.henryssondaniel.teacup.protocol:ftp:1.0.0-SNAPSHOT')
     testCompile('io.github.henryssondaniel.teacup.protocol:http:1.1.3-SNAPSHOT')
+    testCompile('io.github.henryssondaniel.teacup.protocol:telnet:1.0.0-SNAPSHOT')
 }
 
 repositories {
