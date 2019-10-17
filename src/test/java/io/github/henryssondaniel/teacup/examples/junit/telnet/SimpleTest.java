@@ -1,6 +1,6 @@
 package io.github.henryssondaniel.teacup.examples.junit.telnet;
 
-import io.github.henryssondaniel.teacup.core.Fixture;
+import io.github.henryssondaniel.teacup.engine.Fixture;
 import io.github.henryssondaniel.teacup.engine.junit.Teacup;
 import io.github.henryssondaniel.teacup.protocol.telnet.Client;
 import io.github.henryssondaniel.teacup.protocol.telnet.SimpleServer;

@@ -1,7 +1,7 @@
 package io.github.henryssondaniel.teacup.examples.junit.http;
 
 import com.sun.net.httpserver.HttpServer;
-import io.github.henryssondaniel.teacup.core.DefaultSetup;
+import io.github.henryssondaniel.teacup.engine.DefaultSetup;
 import io.github.henryssondaniel.teacup.protocol.http.server.Factory;
 import java.io.IOException;
 import java.net.InetSocketAddress;

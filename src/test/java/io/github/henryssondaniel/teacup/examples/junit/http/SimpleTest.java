@@ -1,8 +1,8 @@
 package io.github.henryssondaniel.teacup.examples.junit.http;
 
-import io.github.henryssondaniel.teacup.core.Fixture;
 import io.github.henryssondaniel.teacup.core.Node;
 import io.github.henryssondaniel.teacup.core.assertion.Factory;
+import io.github.henryssondaniel.teacup.engine.Fixture;
 import io.github.henryssondaniel.teacup.engine.junit.Teacup;
 import io.github.henryssondaniel.teacup.protocol.http.client.Handler;
 import io.github.henryssondaniel.teacup.protocol.http.server.Context;

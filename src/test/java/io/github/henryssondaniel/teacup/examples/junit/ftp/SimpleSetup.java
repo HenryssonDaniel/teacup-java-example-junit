@@ -1,6 +1,6 @@
 package io.github.henryssondaniel.teacup.examples.junit.ftp;
 
-import io.github.henryssondaniel.teacup.core.DefaultSetup;
+import io.github.henryssondaniel.teacup.engine.DefaultSetup;
 import io.github.henryssondaniel.teacup.protocol.ftp.server.Factory;
 import java.util.logging.Level;
 import java.util.logging.Logger;

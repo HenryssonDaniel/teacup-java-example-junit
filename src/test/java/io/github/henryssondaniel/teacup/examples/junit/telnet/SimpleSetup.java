@@ -1,6 +1,6 @@
 package io.github.henryssondaniel.teacup.examples.junit.telnet;
 
-import io.github.henryssondaniel.teacup.core.DefaultSetup;
+import io.github.henryssondaniel.teacup.engine.DefaultSetup;
 import io.github.henryssondaniel.teacup.protocol.telnet.client.Factory;
 import java.util.logging.Level;
 import java.util.logging.Logger;
