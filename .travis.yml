@@ -17,9 +17,11 @@ install: true
 jdk:
   - openjdk11
   - openjdk12
+  - openjdk13
   - openjdk-ea
 language: java
 matrix:
   allow_failures:
+    - jdk: openjdk13
     - jdk: openjdk-ea
 script: "./gradlew clean build javadoc sonarqube"
