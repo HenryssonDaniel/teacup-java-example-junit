@@ -1,8 +1,8 @@
 package io.github.henryssondaniel.teacup.examples.junit.ftp;
 
-import io.github.henryssondaniel.teacup.core.Node;
 import io.github.henryssondaniel.teacup.engine.Fixture;
 import io.github.henryssondaniel.teacup.engine.junit.Teacup;
+import io.github.henryssondaniel.teacup.protocol.Node;
 import io.github.henryssondaniel.teacup.protocol.ftp.Client;
 import io.github.henryssondaniel.teacup.protocol.ftp.SimpleServer;
 import io.github.henryssondaniel.teacup.protocol.ftp.client.Command;
