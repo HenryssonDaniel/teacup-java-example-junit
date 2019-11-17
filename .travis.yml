@@ -21,6 +21,5 @@ jdk:
 language: java
 matrix:
   allow_failures:
-    - jdk: openjdk13
     - jdk: openjdk-ea
 script: "./gradlew clean build javadoc sonarqube"
