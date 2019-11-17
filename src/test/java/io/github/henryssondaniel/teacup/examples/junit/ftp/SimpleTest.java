@@ -3,12 +3,14 @@ package io.github.henryssondaniel.teacup.examples.junit.ftp;
 import io.github.henryssondaniel.teacup.engine.Fixture;
 import io.github.henryssondaniel.teacup.engine.junit.Teacup;
 import io.github.henryssondaniel.teacup.protocol.Node;
+import io.github.henryssondaniel.teacup.protocol.Server;
 import io.github.henryssondaniel.teacup.protocol.ftp.Client;
-import io.github.henryssondaniel.teacup.protocol.ftp.SimpleServer;
 import io.github.henryssondaniel.teacup.protocol.ftp.client.Command;
 import io.github.henryssondaniel.teacup.protocol.ftp.client.Response;
+import io.github.henryssondaniel.teacup.protocol.ftp.server.Context;
 import io.github.henryssondaniel.teacup.protocol.ftp.server.Factory;
 import io.github.henryssondaniel.teacup.protocol.ftp.server.Request;
+import io.github.henryssondaniel.teacup.protocol.ftp.server.Simple;
 import java.io.IOException;
 import java.time.Instant;
 import java.util.Date;
@@ -24,7 +26,7 @@ class SimpleTest {
 
   @Test
   void sendFtpRequest() throws IOException {
-    var simpleServer = Teacup.getServer(SimpleServer.class, Constants.FTP_SERVER);
+    Server<Context, Request> simpleServer = Teacup.getServer(Simple.class, Constants.FTP_SERVER);
 
     var requests =
         simpleServer.setContext(

@@ -4,8 +4,10 @@ import io.github.henryssondaniel.teacup.core.assertion.Factory;
 import io.github.henryssondaniel.teacup.engine.Fixture;
 import io.github.henryssondaniel.teacup.engine.junit.Teacup;
 import io.github.henryssondaniel.teacup.protocol.Node;
+import io.github.henryssondaniel.teacup.protocol.Server;
 import io.github.henryssondaniel.teacup.protocol.http.client.Handler;
 import io.github.henryssondaniel.teacup.protocol.http.server.Context;
+import io.github.henryssondaniel.teacup.protocol.http.server.Request;
 import io.github.henryssondaniel.teacup.protocol.http.server.Simple;
 import java.io.IOException;
 import java.net.URI;
@@ -41,7 +43,8 @@ class SimpleTest {
           .setStatusCode(Factory.createIntegerAssert().isEqualTo(200))
           .setVersion(Factory.<Version>createComparableAssert().isSameAs(Version.HTTP_1_1))
           .build();
-  private static final Simple SIMPLE = Teacup.getServer(Simple.class, Constants.HTTP_SERVER);
+  private static final Server<Context, Request> SIMPLE =
+      Teacup.getServer(Simple.class, Constants.HTTP_SERVER);
 
   @Test
   void sendAsynchronouslyHttpRequest() throws ExecutionException, InterruptedException {

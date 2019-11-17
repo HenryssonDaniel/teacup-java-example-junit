@@ -2,9 +2,12 @@ package io.github.henryssondaniel.teacup.examples.junit.telnet;
 
 import io.github.henryssondaniel.teacup.engine.Fixture;
 import io.github.henryssondaniel.teacup.engine.junit.Teacup;
+import io.github.henryssondaniel.teacup.protocol.Server;
 import io.github.henryssondaniel.teacup.protocol.telnet.Client;
-import io.github.henryssondaniel.teacup.protocol.telnet.SimpleServer;
+import io.github.henryssondaniel.teacup.protocol.telnet.server.Context;
 import io.github.henryssondaniel.teacup.protocol.telnet.server.Factory;
+import io.github.henryssondaniel.teacup.protocol.telnet.server.Request;
+import io.github.henryssondaniel.teacup.protocol.telnet.server.Simple;
 import java.io.IOException;
 import org.junit.jupiter.api.Test;
 
@@ -17,7 +20,7 @@ class SimpleTest {
   void sendFtpRequest() throws IOException {
     var reply = "reply";
 
-    var simpleServer = Teacup.getServer(SimpleServer.class, Constants.TELNET_SERVER);
+    Server<Context, Request> simpleServer = Teacup.getServer(Simple.class, Constants.TELNET_SERVER);
     var serverSupplier = simpleServer.setContext(Factory.createContext(Factory.createReply(reply)));
 
     var client = Teacup.getClient(Client.class, Constants.TELNET_CLIENT);
